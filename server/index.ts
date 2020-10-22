@@ -61,7 +61,7 @@ app.listen(port, () => {
   //const r = await bloxy.getHolders(Contracts.bpt);
   //console.log(r);
 
-setTimeout(() => {
+setTimeout(async () => {
   console.log(await Phoenix.getInstance().currentBalance());
   console.log(await Delta.getInstance().currentBalance());
 }, 10000);

@@ -61,7 +61,7 @@ export default class Phoenix {
       and op_type = 1 --swap
       group by hourslot 
       order by hourslot desc;`);
-    await this.pool.end();
+    
     return res.rows;
   }    
 
@@ -73,7 +73,7 @@ export default class Phoenix {
       and op_type = 1 --swap
       group by hourslot 
       order by hourslot desc;`);
-    await this.pool.end();
+    
     return res.rows;
   }
  
@@ -85,7 +85,7 @@ export default class Phoenix {
       and op_type = 1 --swap
       group by hourslot
       order by hourslot desc;`);
-    await this.pool.end();
+    
     return res.rows;
   }
 
@@ -99,7 +99,7 @@ export default class Phoenix {
       where to_timestamp("timestamp") > now() - interval '1 day' 
       and op_type = 1 --swap
       order by timestamp desc, rn asc;`);
-    await this.pool.end();
+    
     return res.rows;
   }
 
@@ -111,7 +111,7 @@ export default class Phoenix {
       where to_timestamp("timestamp") > now() - interval '7 day' 
       and op_type = 1 --swap
       order by timestamp desc, rn asc;`);
-    await this.pool.end();
+    
     return res.rows;
   }
 
@@ -123,7 +123,7 @@ export default class Phoenix {
       where to_timestamp("timestamp") > now() - interval '1 month'
       and op_type = 1 --swap
       order by timestamp desc, rn asc;`);
-    await this.pool.end();
+    
     return res.rows;
   }
 
@@ -139,7 +139,7 @@ export default class Phoenix {
       from phoenix_tx_monitor
       where rn = 1
       order by timestamp desc;`);
-    await this.pool.end();
+    
     return res.rows; 
   }
 
@@ -155,7 +155,7 @@ export default class Phoenix {
     where to_timestamp("timestamp") <  now() - interval '1 day' 
     and rn = 1
     order by timestamp desc;`);
-    await this.pool.end();
+    
     return res.rows; 
   }
 
@@ -171,7 +171,7 @@ export default class Phoenix {
     where to_timestamp("timestamp") < now() - interval '7 days'
     and rn = 1 
     order by timestamp desc;`);
-    await this.pool.end();
+    
     return res.rows; 
   }
 
@@ -187,7 +187,7 @@ export default class Phoenix {
     where to_timestamp("timestamp") < now() - interval '1 month'
     and rn = 1 
     order by timestamp desc;`);
-    await this.pool.end();
+    
     return res.rows; 
   }
 
@@ -201,7 +201,7 @@ export default class Phoenix {
       where rn = 1
       order by timestamp desc
       limit 1;`);
-    await this.pool.end();
+    
     return res.rows;
   }
 
@@ -212,7 +212,7 @@ export default class Phoenix {
       where to_timestamp("timestamp") > now() - interval '1 day' 
       and rn = 1
       order by timestamp desc;`);
-    await this.pool.end();
+    
     return res.rows;
   }
 
@@ -223,7 +223,7 @@ export default class Phoenix {
       where to_timestamp("timestamp") > now() - interval '7 day' 
       and rn = 1
       order by timestamp desc;`);
-    await this.pool.end();
+    
     return res.rows;
   }
 
@@ -234,7 +234,7 @@ export default class Phoenix {
       where to_timestamp("timestamp") > now() - interval '1 month' 
       and rn = 1
       order by timestamp desc;`);
-    await this.pool.end();
+    
     return res.rows;
   } 
 }

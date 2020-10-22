@@ -3,6 +3,8 @@ import { Router } from "express";
 import { AllCoins, Contracts } from './constants';
 import { Coingecko } from './coingecko';
 import { Bloxy } from './bloxy';
+import Delta from './delta';
+import Phoenix from './phoenix';
 
 import ExpressJoi from 'express-joi-validator';
 const Joi = require('@hapi/joi');
@@ -66,13 +68,25 @@ export class APIRouter {
       const r = await this.bloxy.getHolders(Contracts.statera);
       res.json(r);
     });
+
     this.router.get("/delta/top_holders", async (req, res) => {
       const r = await this.bloxy.getHolders(Contracts.delta);
       res.json(r);
     });
+
+    this.router.get("/delta/balances", async (req, res) => {
+      const balances = await Delta.getInstance().currentBalance()
+      res.json(balances);
+    });
+
     this.router.get("/bpt/top_holders", async (req, res) => {
       const r = await this.bloxy.getHolders(Contracts.bpt);
       res.json(r);
+    });
+
+    this.router.get("/bpt/balances", async (req, res) => {
+      const balances = await Phoenix.getInstance().currentBalance()
+      res.json(balances);
     });
 
     this.router.get("/stats", async (req, res) => {
