@@ -39,7 +39,7 @@ export class Eth {
       this.deltaUpdatedPromise = new Promise((resolve, reject) => {
         Logger.log(kLoggerCategory, `running delta_monitor.py`);
         const startDate = new Date();
-        const child = exec('python3 pool_monitor/delta_monitor.py --daemon=false', { cwd : path.join(__dirname, '../')});
+        const child = exec('python3 pool_monitor/delta_monitor.py', { cwd : path.join(__dirname, '../')});
         child.stdout.on('data', (data) => {
           const str = data.toString();
           const lines = str.split(/(\r?\n)/g);
@@ -68,7 +68,7 @@ export class Eth {
       this.phoenixUpdatedPromise = new Promise((resolve, reject) => {
         Logger.log(kLoggerCategory, `running phoenix_monitor.py`);
         const startDate = new Date();
-        const child = exec('python3 pool_monitor/phoenix_monitor.py --daemon=false', { cwd : path.join(__dirname, '../')});
+        const child = exec('python3 pool_monitor/phoenix_monitor.py', { cwd : path.join(__dirname, '../')});
         child.stderr.pipe(process.stdout);
         child.stdout.on('data', (data) => {
           const str = data.toString();

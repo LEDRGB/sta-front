@@ -19,6 +19,7 @@
     "ethers": "^5.0.14",
     "express-joi-validator": "^2.0.1",
     "moment": "^2.29.0",
+    "pg": "^8.4.1",
     "react": "^16.13.1",
     "react-apexcharts": "^1.3.7",
     "react-dom": "^16.13.1",

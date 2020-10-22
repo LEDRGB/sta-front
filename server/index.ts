@@ -13,6 +13,8 @@ import { APIRouter } from './api-router';
 import { AllCoins, Contracts } from './constants';
 import { Logger } from './logger';
 import { Bloxy } from './bloxy';
+import Phoenix from './phoenix';
+import Delta from './delta';
 
 const app = express();
 const eth = new Eth(process.env.INFURA_KEY);
@@ -55,9 +57,15 @@ app.listen(port, () => {
 });
 
 (async () => {
-  const bloxy = Bloxy.getInstance();
-  const r = await bloxy.getHolders(Contracts.bpt);
-  console.log(r);
+  //const bloxy = Bloxy.getInstance();
+  //const r = await bloxy.getHolders(Contracts.bpt);
+  //console.log(r);
+
+setTimeout(() => {
+  console.log(await Phoenix.getInstance().currentBalance());
+  console.log(await Delta.getInstance().currentBalance());
+}, 10000);
+
 /*  const coingecko = new Coingecko();
   const uniswap = new Uniswap(eth.web3);
   await uniswap.setup();

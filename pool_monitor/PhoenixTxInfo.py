@@ -36,6 +36,19 @@ class PhoenixTxInfo:
             self.phoenix_genesis = 10372700#10372702   
             self.phoenix_address = "'0xcd461B73D5FC8eA1D69A600f44618BDFaC98364D'".lower()
             
+            self.eth_usd_price = 0
+            self.delta_eth_price = 0
+            self.link_eth_price = 0
+            self.snx_eth_price = 0
+            self.wbtc_eth_price = 0
+
+            self.eth_balance = 0
+            self.delta_balance = 0
+            self.link_balance = 0
+            self.snx_balance = 0
+            self.wbtc_balance = 0 
+            
+            self.phoenix_supply = 0   
         else:   
             self.num_tx = 0
             
@@ -101,12 +114,12 @@ class PhoenixTxInfo:
                 ,f'op_type : {self.op_type}'
                 ,f'input_token_symbol : {self.input_token_symbol}'
                 ,f'input_token_volume : {self.input_token_volume}'
-                ,f'input_token_fees : {self.input_token_fees}'
-                ,f'input_token_eth_price : {self.input_token_eth_price}'
+                #,f'input_token_fees : {self.input_token_fees}'
+                #,f'input_token_eth_price : {self.input_token_eth_price}'
                 ,f'output_token_symbol : {self.output_token_symbol}'
                 ,f'output_token_volume : {self.output_token_volume}'
-                ,f'output_token_fees : {self.output_token_fees}'
-                ,f'output_token_eth_price : {self.output_token_eth_price}' 
+                #,f'output_token_fees : {self.output_token_fees}'
+                #,f'output_token_eth_price : {self.output_token_eth_price}' 
                 ,f'eth_usd_price : {self.eth_usd_price}' 
                 ,f'delta_eth_price : {self.delta_eth_price}' 
                 ,f'link_eth_price : {self.link_eth_price}' 
